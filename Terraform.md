@@ -153,7 +153,7 @@ Another way to set variables is by using the command-line, for example `terrafo
 
 #### TFVARS FILES
 
-Passing variables inside a file, this is possible create a file called `terraform.tfvars` this file can be in a yaml or json notation, and is very simple, and also we can add maps, for example:
+Passing variables inside a file, We need to create a file called `terraform.tfvars` this file can be in a yaml or json notation, and is very simple, and also we can add maps, for example:
 
 ```
 vpcname = "tfvarsname"
@@ -171,11 +171,11 @@ Link: <https://amazicworld.com/difference-between-variable-tf-and-variable-tfva
 
 #### AUTO TFVARS
 
-This is for example using a file called `dev.auto.tfvars` (is the next file that look after look in the terraform.tfvars)
+It is a file called `dev.auto.tfvars` (is the next file that is considered after terraform.tfvars)
 
 #### MULTIPLE VALUE FILES
 
-We can create a specified `*.tvars` file and load for example with `terraform plan`, this is very useful to settings variables for different environments.
+We can create a specified `*.tfvars` file and load for example with `terraform plan`, this is very useful to settings variables for different environments.
 
 ```
 terraform plan -var-file=prod.tfvars
@@ -224,7 +224,7 @@ Link: <https://www.terraform.io/docs/configuration/terraform.html#specifying-a-
 
 #### PROVIDERS
 
-A provider is responsible for understanding API interactions and exposing resources. If an API is available, you can create a provider. A provider user a plugin. In order to make a provider available on Terraform, we need to make a `terraform init`, this commands download any plugins we need for our providers. If for example we need to copy the plugin directory manually, we can do it, moving the files to `.terraform.d/plugins`
+A provider is responsible for understanding API interactions and exposing resources. If an API is available, you can create a provider. A provider uses a plugin. In order to make a provider available on Terraform, we need to make a `terraform init`, this commands download any plugins we need for our providers. If for example we need to copy the plugin directory manually, we can do it, moving the files to `.terraform.d/plugins`
 
 Note: Using `terraform providers` command we can view the specified version constraints for all providers used in the current configuration
 
@@ -252,7 +252,7 @@ When `terraform init` is re-run with providers already installed, it will use 
 
 #### MULTIPLE PROVIDER SETUP
 
-We can use for example multiple AWS providers with different regions, for this we need to create an `alias` and on the resource creation we need to specified the provider. For example
+We can use for example multiple AWS providers with different regions, for this we need to create an `alias` and on the resource creation we need to specify the provider. For example
 
 ```
 provider "aws" {
@@ -319,7 +319,7 @@ Note: By default, a defined provisioner is a creation-time provisioner. You mus
 
 With Terraform the plugins have 2 options to do the job:
 
--   Local-Exec: From our local machine
+-   Local-Exec: On our local machine
 -   Remote-Exec: On the remote instance
 
 One example of local-exec is create a ssh key in our machine.
@@ -358,7 +358,7 @@ Links:
 MASTER THE WORKFLOW
 -------------------
 
-3 types of users, the workflow change according to the user
+We have 3 types of users, the workflow changes based on the type of our user
 
 -   Individual
 
@@ -778,7 +778,7 @@ Data Sources are the way Terraform can query AWS and return results (Api request
 
 Use of data sources allows a Terraform configuration to make use of information defined outside of Terraform, or defined by another separate Terraform configuration.
 
-For example we can information to an EC2 created on AWS without being created using Terraform,
+For example we can get information of an EC2 instance created on AWS without being created using Terraform,
 
 Example using a data source to know the AZ of an Instance created without Terraform, a print on the output command.
 
